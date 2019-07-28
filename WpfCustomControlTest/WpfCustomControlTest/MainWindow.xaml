@@ -4,24 +4,37 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfCustomControlTest"
+        xmlns:v ="clr-namespace:WpfCustomControlTest"
         mc:Ignorable="d"
-        Title="MainWindow" Height="220.092" Width="583.282">
+        Title="MainWindow" Height="256.931" Width="637.124">
     <Grid Margin="0,0,-22,-4">
-        <local:ProgressBar Background="White" Value = "80" Height="20" Margin="-10,164,10,10"/>
-        <ListView Name="lstw" Margin="5,5,95,97">
-            <ListView.View>
-                <GridView>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="214*"/>
+            <RowDefinition Height="17*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = "225"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-                    <GridViewColumn Header="Имя" Width="100"></GridViewColumn>
-                    <GridViewColumn  Width="350">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <local:ProgressBar Background="Black" Value = "50" Height="20"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <Grid Grid.Column = "0" DragEnter="Grid_DragEnter">
+            <ListView x:Name="TimerList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <v:ProgressBar/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListBox.Items>
+                    <local:ProgressBar x:Name="first" Background="White" Value = "80" Height="20" />
+                    <local:ProgressBar >bar</local:ProgressBar>
+                </ListBox.Items>
+            </ListView>
+        </Grid>
+
+        <Grid Grid.Column="1">
+
+        </Grid>
+
     </Grid>
 </Window>

@@ -26,11 +26,28 @@ namespace WpfCustomControlTest
         {
             
             InitializeComponent();
-            ObservableCollection<ProgressBar> collection = new ObservableCollection<ProgressBar>();
-            lstw.ItemsSource = collection;
+            //ObservableCollection<ProgressBar> collection = new ObservableCollection<ProgressBar>();
+            //ProgressBar bar = new ProgressBar();
+            //collection.Add(bar);
 
-            ProgressBar bar = new ProgressBar();
+            //TimerList.ItemsSource = collection;
+            //TimerList.MouseDoubleClick += doubleClickEventHandler;
+
+        }
+
+        private void doubleClickEventHandler(object sender, MouseButtonEventArgs e)
+        {
+            ObservableCollection<ProgressBar> collection = new ObservableCollection<ProgressBar>();
+            ProgressBar bar = new ProgressBar() { Width = 50, Height = 30 };
             collection.Add(bar);
+
+            TimerList.ItemsSource = collection;
+        }
+
+        private void Grid_DragEnter(object sender, DragEventArgs e)
+        {
+           
+            
         }
 
      
